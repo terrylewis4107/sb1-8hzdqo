@@ -1,0 +1,28 @@
+<GridLayout rows="*, auto" columns="*, 200">
+  <GridLayout row="0" col="0" rows="auto, *">
+    <Label text="Participants" class="h2 p-2"></Label>
+    <ListView [items]="participants" row="1">
+      <ng-template let-participant="item">
+        <GridLayout columns="*, auto, auto">
+          <Label [text]="participant.name" class="p-2"></Label>
+          <Button text="Share Screen" (tap)="startScreenShare()" col="1" class="btn btn-sm"></Button>
+          <Button text="Request Control" (tap)="requestRemoteControl(participant.id)" col="2" class="btn btn-sm"></Button>
+        </GridLayout>
+      </ng-template>
+    </ListView>
+  </GridLayout>
+
+  <GridLayout row="0" col="1" rows="auto, *">
+    <Label text="Chat" class="h2 p-2"></Label>
+    <ListView [items]="messages" row="1">
+      <ng-template let-message="item">
+        <Label [text]="message" class="p-2"></Label>
+      </ng-template>
+    </ListView>
+  </GridLayout>
+
+  <GridLayout row="1" col="0" colspan="2" columns="*, auto">
+    <TextField [(ngModel)]="newMessage" hint="Type a message" class="input input-border"></TextField>
+    <Button text="Send" (tap)="sendMessage()" col="1" class="btn btn-primary"></Button>
+  </GridLayout>
+</GridLayout>

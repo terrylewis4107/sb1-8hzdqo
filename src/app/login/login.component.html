@@ -1,0 +1,6 @@
+<StackLayout class="form p-4">
+  <Label text="Video Conference Login" class="h2 text-center"></Label>
+  <TextField [(ngModel)]="username" hint="Username" class="input input-border"></TextField>
+  <TextField [(ngModel)]="password" hint="Password" secure="true" class="input input-border"></TextField>
+  <Button text="Login" (tap)="login()" class="btn btn-primary"></Button>
+</StackLayout>
